@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo de JavaScrit</title>
+</head>
+<body>
+    <!-- 4. Criar um documento HTML e adicione uma tag <script> no final do corpo do documento. -->
+        <h1>Bem-vindo ao estudo de JavaScript!</h1>
+        <p id="meuParagrafo">Este é um parágrafo.</p>
+        <h1>JavaScript em ação:</h1>
+
+        <script>
+    // 5. Utilize alert() para exibir uma mensagem indicando que o script foi carregado corretamente.
+            alert("Página carregada e script executado.");
+            document.write("<p>Este parágrafo foi adicionado pelo JavaScript.");
+    // 6. Criar variáveis com a palavra-chave var. Crie duas variáveis usando a palavra-chave var para armazenar o nome e a idade de uma pessoa e exiba essas informações na página usando document.write. 
+            var nome = "Maria";
+            var idade = 25;
+            document.write("<p>Nome: "+ nome + "</p>");
+            document.write("<p>Idade: "+ idade + "</p>");
+    // 7. Acessar tags do documento com getElementById()
+            var paragrafo = document.getElementById("meuParagrafo");
+            document.write("<p>Conteúdo acessado: "+ paragrafo.innerHTML + "</p");
+    // 8. Alterar o conteúdo de uma tag com innerHTML
+            document.getElementById("meuParagrafo").innerHTML = "O conteúdo foi alterado!";
+            var novoConteudo = document.getElementById("meuParagrafo)").innerHTML;
+            document.write("<p>Novo conteúdo: "+ novoConteudo + "</p>");
+        </script>
+</body>
+</html>

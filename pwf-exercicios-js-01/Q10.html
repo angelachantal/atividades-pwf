@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exerícios Propostos JavaScrit</title>
+</head>
+<body>
+    <!-- 10. Trocar o Conteúdo de um <h1> com o de um Parágrafo -->
+    <!-- Crie uma página com um <h1> e um <p> contendo textos diferentes.  -->
+    <h1 id="titulo">Primeiro Título</h1>
+    <p id="paragrafo">Segundo título.</p>
+   
+    <script>
+        // Use getElementById() e innerHTML para trocar os conteúdos entre o <h1> e o parágrafo.
+        var titulo = document.getElementById("titulo").innerHTML;
+        var paragrafo = document.getElementById("paragrafo").innerHTML;
+        
+        document.getElementById("titulo").innerHTML = paragrafo;
+        document.getElementById("paragrafo").innerHTML = titulo;
+        </script>
+</body>
+</html>
