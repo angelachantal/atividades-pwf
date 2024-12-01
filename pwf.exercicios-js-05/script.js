@@ -25,21 +25,19 @@ ocultarcaixa.addEventListener('click', () =>{
 //     }
 // })
 
-let enviartexto = getById('enviartexto');
-enviartexto.addEventListener('click', () =>{
-    let inserirtexto = getById('inserirtexto').value;
-    let texto = getById('texto')
-    texto.innerHTML = inserirtexto
-})
+let enviarTexto = getById('enviarTexto');
+let texto = getById('texto');
+let fonte = texto.style.fontSize;
 
-// let fontSizeOriginal;
+enviarTexto.addEventListener('click', () =>{
+    let inserirTexto = getById('inserirTexto').value;
+    texto.innerHTML = inserirTexto;
+});
 
-let aumentartexto = getById('aumentarfonte');
-aumentartexto.addEventListener('click', () =>{
-
-})
-
-let diminuirfonte = getById('diminuirfonte');
-diminuirfonte.addEventListener('click', ()=>{
-
-})
+// let aumentarTexto = getById('aumentarFonte');
+// aumentarTexto.addEventListener('click', () =>{
+//     texto.style.fontSize = parseInt(fonte);
+//     let fonteAumentada = texto.style.fontSize + 1;
+//     texto.style.fontSize = fonteAumentada + 'px';
+// });
+    
