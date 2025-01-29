@@ -14,8 +14,8 @@ botaoLimpar.addEventListener('click', limparCampos);
 let botaoConsultarClima = getById('botaoConsultarClima');
 botaoConsultarClima.addEventListener('click', consultarClima); 
 
-// let botaoConsultarNoticias = getById('botaoConsultarNoticias');
-// botaoConsultarNoticias.addEventListener('click', consultarNoticia);
+let botaoConsultarNoticias = getById('botaoConsultarNoticias');
+botaoConsultarNoticias.addEventListener('click', consultarNoticia);
 
 async function consultarPreco() {
     let moedaBase = getById('moedaBase').value.toUpperCase(); // Moeda base (ex.: BTC)
@@ -71,30 +71,43 @@ async function consultarClima(){
         <p><strong>Temperatura:</strong> ${jsonClima.main.temp}°C</p>
         <p><strong>Condição:</strong> ${jsonClima.weather[0].description}</p>
         <p><strong>Umidade:</strong> ${jsonClima.main.humidity}%</p>
-        <p><strong>Pressão:</strong> ${jsonClima.main.pressure} hPa</p>
         `;
         } catch (error) {             
             resultadoClima.innerHTML = 'Erro: ' + error.message;         
         } 
 }
 
-  
+async function consultarNoticia(){
+    let apikey_noticias = 'Qwm4XhdP6bqNtewtdDJTwvgj89pdA9Rm';
+    let noticias = getById('noticias').value.trim();
+    let resultadoNoticias = getById('resultadoNoticias');
+    let url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${encodeURIComponent(noticias)}&api-key=${apikey_noticias}`;
+    // &fq=lang:("por")
 
-// //async function consultarNoticia(){
-//     let noticias = getById('noticias').value.toUpperCase(); // Moeda base (ex.: BTC)
+    try {
+        let response = await fetch(url); 
+        if (!response.ok) {
+            throw new Error("Erro ao carregar as notícias.");
+        }
+        let jsonNoticias = await response.json();
+
+        if (jsonNoticias.response && jsonNoticias.response.docs.length > 0) {
+            let artigos = jsonNoticias.response.docs.map(article => `
+                <div>
+                    <h3><a href="${article.web_url}" target="_blank">${article.headline.main}</a></h3>
+                    <p>${article.abstract}</p>
+                    <small>Publicado em: ${new Date(article.pub_date).toLocaleDateString()}</small>
+                    <hr>
+                </div>
+            `).join("");
+
+            resultadoNoticias.innerHTML= artigos;
+        } else {
+            resultadoNoticias.innerHTML="Nenhum artigo encontrado.";
+            return [];
+        }
+    } catch (error) {
+        resultadoNoticias.innerHTML="Erro ao buscar artigos: ${error.message}";
+    }
+}
     
-//     let resultadoNoticias = getById('resultadoNoticias');
-//     let url = ``;
-    
-//     try {
-//         let response = await fetch(url); // Faz a requisição à API
-//         if (!response.ok) {
-//             throw new Error(`HTTP Error: ${response.status} - ${response.statusText}`);
-//         }
-//         let json = await response.json();
-    
-//         resultadoNoticias.innerHTML = ``;
-//         } catch (error) {
-//             resultadoNoticias.innerHTML = 'Erro: ' + error.message;
-//         }
-// // }
