@@ -1,63 +1,63 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Preço - Binance</title>
-    <link rel="stylesheet" href="estilos.css">
-    <script defer src="scripts.js"></script>
-</head>
-
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio APIs</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
     <div class="container">
-        <h1>Consultar Preço de Moedas</h1>
+      <h1>Consultar Preço de Moeda</h1>
 
-        <label for="moedaBase">Moeda Base (Ex.: BTC):</label>
-        <input type="text" id="moedaBase" placeholder="Digite a moeda base" list="moedas">
+      <label for="moedaBase">Moeda Base (Ex.: BTC):</label>
+      <input list="moedas" id="moedaBase" placeholder="Digite a moeda base" />
 
-        <label for="moedaConversao">Moeda Conversão (Ex.: USDT):</label>
-        <input type="text" id="moedaConversao" placeholder="Digite a moeda de conversão" list="moedas">
-        <datalist id="moedas">
-            <option value="BTC">
-            <option value="ETH">
-            <option value="USDT">
-            <option value="XRP">
-            <option value="ADA">
-            <option value="LTC">
-            <option value="BCH">
-            <option value="DOGE">
-        </datalist>
-        <button id="botaoConsultar">Consultar</button>
-        <br><br><br>
+      <label for="moedaConversao">Moeda de Conversão (Ex.: USDT):</label>
+      <input list="moedas" id="moedaConversao" placeholder="Digite a moeda de conversão" />
 
+      <datalist id="moedas">
+        <option value="BTC"></option>
+        <option value="USDT"></option>
+        <option value="ETH"></option>
+        <option value="XRP"></option>
+        <option value="SOL"></option>
+        <option value="BNB"></option>
+        <option value="USDC"></option>
+        <option value="DOGE"></option>
+        <option value="ADA"></option>
+        <option value="TRX"></option>
+      </datalist>
+
+      <div class="button-container">
+        <button id="botaoConsultarConversao">Consultar</button>
         <button id="botaoInverter">Inverter Moedas</button>
-        <br><br><br>
+        <button id="botaoLimpar">Limpar dados</button>
+      </div>
 
-        <button id="botaoLimpar">Limpar Consulta</button>
-
-        <div id="resultado"></div>
+      <div class="resultado" id="resultadoConversao"></div>
     </div>
 
-    <section>
-        <h2>Consultar Clima</h2>
+    <div class="container">
+        <h1>Consultar Clima</h1>
+
         <label for="cidade">Cidade:</label>
         <input type="text" id="cidade" placeholder="Digite a cidade">
+        
         <label for="estado">Estado (Ex.: PI):</label>
         <input type="text" id="estado" placeholder="Digite o estado">
+
         <button id="botaoConsultarClima">Consultar Clima</button>
-        <div id="resultadoClima"></div>
-      </section>
+        <div class="resultado" id="resultadoClima"></div>
+    </div>
 
-      <section>
-        <h2>Consultar Notícias</h2>
-        <label for="categoriaNoticias">Categoria (Ex.: tecnologia, ciência):</label>
-        <input type="text" id="categoriaNoticias" placeholder="Digite a categoria">
+    <div class="container">
+        <h1>Consultar Notícias</h1>
+        <label for="noticias">Categoria (Ex.: tecnologia, ciência):</label>
+        <input type="text" id="noticias" placeholder="Digite a categoria">
         <button id="botaoConsultarNoticias">Consultar Notícias</button>
-        <div id="resultadoNoticias"></div>
-      </section>
-
-</body>
-
+        <div class="resultado" id="resultadoNoticias"></div>
+    </div>
+  </body>
 </html>
