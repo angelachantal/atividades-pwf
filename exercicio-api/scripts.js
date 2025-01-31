@@ -56,7 +56,7 @@ async function consultarClima(){
     let cidade = getById('cidade').value.trim();
     let estado = getById('estado').value.trim();
     let resultadoClima = getById('resultadoClima');
-    let apiKey = 'ba4f880f95e2bafcccf7046e0533a697'; 
+    let apiKey = ''; 
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade},${estado},br&appid=${apiKey}&lang=pt_br&units=metric`;
     
     try {
@@ -78,7 +78,7 @@ async function consultarClima(){
 }
 
 async function consultarNoticia(){
-    let apikey_noticias = 'Qwm4XhdP6bqNtewtdDJTwvgj89pdA9Rm';
+    let apikey_noticias = '';
     let noticias = getById('noticias').value.trim();
     let resultadoNoticias = getById('resultadoNoticias');
     let url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${encodeURIComponent(noticias)}&api-key=${apikey_noticias}`;
